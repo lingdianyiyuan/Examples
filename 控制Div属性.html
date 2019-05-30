@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>控制Div属性</title>
+		<style type="text/css">
+			.box {
+				width: 300px;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+
+			.square {
+				width: 100px;
+				height: 100px;
+				background: #009F96;
+				margin: 20px auto;
+			}
+
+			.input-box {
+				text-align: center;
+			}
+
+			input {
+				width: 45px;
+				height: 25px;
+				background: #61A0FF;
+				color: #FFFFFF;
+				border: none;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="box">
+			<div class="input-box">
+				<input type="button" value="变宽">
+				<input type="button" value="变高">
+				<input type="button" value="变色">
+				<input type="button" value="隐藏">
+				<input type="button" value="重置">
+			</div>
+			<div class="square"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//一、window.onload()方法
+		window.onload = function() {
+			//二、函数
+			var chengeStyle = function(elem, attr, value) {
+				elem.style[attr] = value;//等于oDiv.style.属性 = 属性值；
+			}
+			//三、获取DOM
+			var oBut = document.getElementsByTagName("input");//获取input元素
+			var oDiv = document.getElementsByClassName("square")[0];//获取div元素
+			var oAtt = ["width", "height", "background", "display", "display"];//属性
+			var oVal = ["200px", "200px", "red", "none", "block"];//属性值
+			//console.log(oAtt.length);//等于5；下标是从0开始的。
+			for (var i = 0; i < oBut.length; i++) {
+				oBut[i].index = i;
+				oBut[i].onclick = function() {//点击事件
+					this.index == oBut.length - 1 && (oDiv.style.cssText = "");//oBut.length - 1是下标，oDiv.style.cssText = ""是让div的样式为空
+					chengeStyle(oDiv, oAtt[this.index], oVal[this.index]);//函数调用
+				}
+			}
+
+		}
+	</script>
+</html>
+<!-- 
+	一、window.onload()方法；
+		1、该方法用于网页加载完毕后立即执行的操作，即当html加载完毕后，立即执行某个方法。
+		2、js中的函数方法需要在html渲染完成才能执行，如果没有渲染完成，此时Dom树是不完整的，js文件会报出“undefined”错误。
+
+	二、函数；
+		1、函数定义；
+			JavaScript使用关键字function来声明函数，函数可以通过声明定义，也可以是一个表达式。
+			函数声明实例；
+				命名函数；	
+				var myFunction = function namedFunction(a,b){
+					return a * b;
+				}
+				myFunction(3,4)
+
+				匿名函数；
+				var myFunction = function (a,b){
+					return a * b;
+				}
+				自调用函数；
+				myFunction(3,4)
+				(function (){
+					console.log(123)
+				})()
+
+			函数声明后不会立即执行，会在我们需要的时候调用。
+
+		2、调用函数时，传递给函数的值被称为函数的实参（值传递），对应的位置的参数名叫做形参。
+				默认参数：
+				函数默认参数允许在没有值或undefined被传入时使用默认参数。
+				function myFunction(a,b=1){
+						return  a * b;
+					}
+				console.log(myFunction(3,4));//12
+				console.log(myFunction(3));//3
+				剩余参数：
+				function sum(...theArgs) {
+				return theArgs.reduce((previous, current) => {  //reduce() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。
+						return previous + current;
+					});
+				}
+			console.log(sum(1, 2, 3));	// expected output: 6
+			console.log(sum(1, 2, 3, 4));// expected output: 10
+	三、js获取HTML DOM的八种方法；
+		1、通过id获取（getElementById）
+			用法：上下文必须是document，必须传参数，参数类型事String，是获取元素的id。
+		2、通过name属性（getElementsByName）
+			用法：上下文必须是document，必须传参数，参数是获取元素的name属性，返回值是一个类数组，没有返回值是一个空数组。
+		3、通过标签名（getElementsByTagName）
+			用法：上下文可以是document也可以是一个元素，这个元素一定要存在，参数是获取元素的标签名属性，不区分大小写。返回值是一个类数组，找不到是一个空数组。
+		4、通过类名（getElementByClassName）
+			用法：上下文可以是document也可以是一个元素，参数是类名，返回值是一个类数组，找不到返回空数组。ie8及一下不兼容。
+		5、获取html的方法（document.documentElement）
+			用法：document.documentElement是专门获取html的这个标签。
+		6、获取body的方法（document.body）
+			用法：document.body是专门获取body的这个标签。
+		7、通过选择器获取一个元素（querySelector）
+			用法：上下文可以是document，也可以是一个元素。参数是选择器，如：“div.className”。返回值只能获取一个元素。
+		8、通过选择器获取一组元素（querySelectorAll）
+			用法:上下文可以是document，也可以是一个元素。参数是选择器，如：“div.className”。返回值只能获取一个元素。
+ -->
