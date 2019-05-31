@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网页换肤</title>
+    <link rel="stylesheet" href="css/red.css">
+</head>
+
+<body>
+    <div id="center">
+        <input type="button" value="红色">
+        <input type="button" value="蓝色">
+        <input type="button" value="黄色">
+
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var oLink = document.getElementsByTagName("link")[0];
+        //console.log(oLink);
+        var oIpiut = document.getElementsByTagName("input");
+        // console.log(oIpiut);
+        var oAttr = ["red", "blue", "yellow"];
+
+        function replace(color) {
+            oLink.href = "css/" + color + ".css";
+        }
+        
+        for (var i = 0; i < oIpiut.length; i++) {
+            oIpiut[i].index = i;
+            oIpiut[i].onclick = function () {
+                this.index == oIpiut.length - 1;
+                replace(oAttr[this.index]);
+            }
+        }
+
+
+    }
+</script>
+
+</html>

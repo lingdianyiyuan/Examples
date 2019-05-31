@@ -1,0 +1,12 @@
+body{
+    background: yellow;
+}
+input{
+    background: #009f96;
+    color: #ffffff;
+    border: none;
+}
+#center{
+    margin: 0 auto;
+    text-align: center;
+}
