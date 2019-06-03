@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用循环将三个Div变成红色</title>
+    <style>
+        .center-child {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: #009f96;
+        }
+
+        .center {
+            width: 310px;
+            margin: 0 auto;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            width: 45px;
+            height: 25px;
+            background: #61A0FF;
+            color: #ffffff;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="center-child"></div>
+        <div class="center-child"></div>
+        <div class="center-child"></div>
+        <button>变色</button>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var oDiv = document.getElementsByClassName("center-child");
+        //console.log(oDiv);
+        var oBut = document.getElementsByTagName("button")[0];
+        //console.log(oBut);
+
+        //有bug
+        //    var flag = true;
+        //     oBut.onclick = function () {
+        //         for (var i = 0; i < oDiv.length; i++) {
+        //             if (flag) {
+        //               //  alert(i);//0,2
+        //                 oDiv[i].style.backgroundColor = "red";
+        //                 flag = false;
+        //                 console.log(flag);//false true false
+        //             } else {
+        //                // alert(i);//1
+        //                 oDiv[i].style.backgroundColor = "#009f96";
+        //                 flag = true;
+        //                 console.log(flag);//true false true 
+        //             }
+        //         }
+        //     }
+
+        oBut.onclick = function () {
+            for (var i = 0; i < oDiv.length; i++) {
+                // alert(123);
+                oDiv[i].style.backgroundColor = "red";
+            }
+        }
+    }
+</script>
+
+</html>

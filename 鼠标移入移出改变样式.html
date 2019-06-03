@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移出改变样式</title>
+    <style>
+        .center{
+            width: 200px;
+            height: 200px;
+            background: #009f96;
+            margin: 0 auto;
+        }
+        .center-change{
+            width: 200px;
+            height: 200px;
+            background: #61A0FF;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="center"></div>
+</body>
+<script>
+    window.onload = function(){
+        var oDiv = document.getElementsByClassName("center")[0];
+        oDiv.onmouseover = function(){
+            oDiv.className = "center-change";
+        }
+        oDiv.onmouseout = function(){
+            oDiv.className = "center";
+        }
+    }
+</script>
+</html>

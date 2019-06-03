@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数接收参数并弹出</title>
+    <style>
+        input {
+            width: 200px;
+            height: 25px;
+            display: block;
+            margin: 20px 0;
+        }
+
+        button {
+            margin: 0 auto;
+            display: block;
+        }
+
+        .center {
+            width: 210px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <input type="text" name="" id="inp_one" placeholder="输入参数">
+        <input type="text" name="" id="inp_two" placeholder="输入参数">
+        <button id="but">传参</button>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        // var oInp_one = document.getElementById("inp_one");
+        //var oInp_two = document.getElementById("inp_two");
+        //console.log(oInp_one,oInp_two);
+        var oInp = document.getElementsByTagName("input");
+        var oBut = document.getElementById("but");
+        // console.log(oInp);
+        //方法一；
+        //    oBut.onclick = function (){
+        //       alert(oInp_one.value) ;
+        //       alert(oInp_two.value);
+
+        //    }
+        //方法二；
+        // function chenge(a, b) {
+        //     alert(a.value);
+        //     alert(b.value);
+        // }
+        // for (var i = 0; i < oInp.length; i++) {
+        //     oBut.onclick = function () {
+        //         chenge(oInp[0], oInp[1]);
+        //     }
+        // }
+        //方法三；
+        for (var i = 0; i < oInp.length; i++) {
+            oBut.onclick = function () {
+                alert(oInp[0].value);
+                alert(oInp[1].value);
+
+            }
+        }
+    }
+</script> 
+
+</html>
