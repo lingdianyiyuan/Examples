@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹出层效果</title>
+    <style>
+        * {
+            margin: 0;
+            /* padding: 0; */
+        }
+        
+        .center {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .but {
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .but button {
+            width: 45px;
+            height: 20px;
+            background: #0F95CB;
+            color: #ffffff;
+            border: none;
+        }
+        
+        .box {
+            background: #000;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .box-center {
+            width: 300px;
+            height: 200px;
+            margin: auto;
+            background: #D7DA4B;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+        
+        .box-center button {
+            width: 45px;
+            height: 20px;
+            background: #0F95CB;
+            color: #ffffff;
+            border: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="but">
+            <button>点击</button>
+        </div>
+        <div class="box">
+            <div class="box-center">
+                <button id="off">关闭</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        var bw = document.body.clientWidth;
+        var bh = window.innerHeight;
+        var oBut = document.getElementsByTagName("button")[0];
+        var center = document.getElementsByClassName("center")[0];
+        var Mask = document.getElementsByClassName("box")[0];
+        var boxCenter = document.getElementsByClassName("box-center")[0];
+        var off = document.getElementById("off");
+        oBut.onclick = function() {
+            Mask.style.width = bw + "px";
+            Mask.style.height = bh + "px";
+            boxCenter.style.display = "inline-block";
+            Mask.style.display = "inline-block";
+        }
+        off.onclick = function() {
+            Mask.style.display = "none";
+        }
+
+    }
+</script>
+
+</html>
