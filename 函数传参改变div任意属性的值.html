@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数传参改变div的任意值</title>
+    <style>
+        #app {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        
+        input {
+            width: 150px;
+            height: 20px;
+            border: none;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .Div {
+            width: 150px;
+            height: 150px;
+            margin: 10px auto;
+            background: #009f96;
+            text-align: center;
+        }
+        
+        .inputBox {
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .inputBox button {
+            width: 45px;
+            height: 30px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="inputBox">
+            <label for="">属性名：</label>
+            <input type="text" value="color" id="attr">
+        </div>
+
+        <div class="inputBox">
+            <label for="">属性值：</label>
+            <input type="text" value="red" id="val">
+        </div>
+        <div class="inputBox">
+            <button id="submit">提交</button>
+            <button id="Reset">重置</button>
+        </div>
+        <div class="Div">
+            我是一只小青龙
+        </div>
+    </div>
+    <!-- <script>
+        var Attr = document.getElementById("attr");
+        var Val = document.getElementById("val");
+        var subMit = document.getElementById("submit");
+        var Reset = document.getElementById("Reset");
+        var oDiv = document.getElementsByClassName("Div")[0];
+
+        function divAttr(attr, value) { 
+            oDiv.style[attr] = value;
+        }
+        subMit.onclick = function() {
+            divAttr(Attr.value, Val.value)
+        }
+        Reset.onclick = function() {
+            oDiv.style = "";
+        }
+    </script> -->
+    <script>
+        var Input = document.querySelectorAll("input");
+        var oBut = document.querySelectorAll("button");
+        var oDiv = document.getElementsByClassName("Div")[0];
+
+        function divAttr(elem, attr, value) {
+            elem.style[attr] = value;
+        }
+        oBut[0].onclick = function() {
+            divAttr(oDiv, Input[0].value, Input[1].value)
+        }
+        oBut[1].onclick = function() {
+            oDiv.removeAttribute("style");
+        }
+    </script>
+</body>
+
+</html>
