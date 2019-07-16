@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片列表：鼠标移入/移出改变图片透明度</title>
+    <style>
+        .center {
+            width: 700px;
+            margin: 0 auto;
+            border: 1px solid #000000;
+        }
+        
+        .center::after {
+            content: '.';
+            height: 0;
+            display: block;
+            clear: both;
+        }
+        
+        .center ul {
+            float: right;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .center ul li {
+            float: left;
+            list-style: none;
+            border: 1px solid #eeeeee;
+            margin: 5px;
+        }
+        
+        .center ul li img {
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="center">
+            <ul>
+                <li> <img src="images/1.jpg" alt=""> </li>
+                <li> <img src="images/2.jpg" alt=""> </li>
+                <li> <img src="images/3.jpg" alt=""> </li>
+                <li> <img src="images/4.jpg" alt=""> </li>
+                <li> <img src="images/5.jpg" alt=""> </li>
+                <li> <img src="images/6.jpg" alt=""> </li>
+                <li> <img src="images/7.jpg" alt=""> </li>
+                <li> <img src="images/8.jpg" alt=""> </li>
+                <li> <img src="images/9.jpg" alt=""> </li>
+                <li> <img src="images/10.jpg" alt=""> </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            var oImg = document.querySelectorAll("img");
+
+            // for循环实现鼠标上移颜色透明度增加
+
+            // for (var i = 0; i < oImg.length; i++) {
+            //     oImg[i].onmouseover = function() {
+            //         this.style.opacity = 1;
+            //     }
+            //     oImg[i].onmouseout = function() {
+            //         this.style.opacity = 0.5;
+            //     }
+            // }
+
+            // for...in...循环实现鼠标上移颜色透明度增加
+
+            // for (var val in oImg) {
+
+            //     oImg[val].onmouseover = function() {
+            //         this.style.opacity = 1;
+            //     }
+            //     oImg[val].onmouseout = function() {
+            //         this.style.opacity = 0.5;
+            //     }
+            // }
+
+            // forEach循环实现鼠标上移颜色透明度增加
+
+            oImg.forEach(function(val, index, arry) {
+                // console.log(val, index, arry)
+                //forEach的三个值：第一个值为当前元素（必选），第二个值为索引值（可选），第三个值为当前元素所属的数组（可选）；
+                oImg[index].onmouseover = function() {
+                    this.style.opacity = 1;
+                }
+                oImg[index].onmouseout = function() {
+                    this.style.opacity = 0.5;
+                }
+            })
+
+        }
+    </script>
+</body>
+
+</html>
