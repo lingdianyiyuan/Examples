@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>求出数组中所有数字的和</title>
+    <style>
+        .center {
+            width: 200px;
+            margin: 0 auto;
+        }
+        
+        input {
+            width: 100%;
+            height: 30px;
+            border: 1px solid #0B79C7;
+        }
+        
+        button {
+            display: block;
+            width: 45px;
+            height: 30px;
+            background: #0B79C7;
+            border: none;
+            margin: 10px auto;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .digital {
+            width: 100%;
+            height: 30px;
+            border: 1px solid #66E6F0;
+        }
+        
+        .with {
+            width: 100px;
+            height: 50px;
+            margin: 10px auto;
+            border: 1px solid #0AFF4A;
+            line-height: 50px;
+            font-weight: 900;
+            color: #6D5488;
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <input type="text" value="" name="" id="inp">
+        <div class="digital"></div>
+        <button>求和</button>
+        <div class="with"></div>
+
+
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        var oInput = document.getElementById("inp");
+        var oBut = document.getElementsByTagName("button")[0];
+        var digital = document.getElementsByClassName("digital")[0];
+        var oWith = document.getElementsByClassName("with")[0];
+        var arr = [];
+        var str = 0;
+        oBut.onclick = function() {
+            arr.push(parseInt(oInput.value));
+            oInput.value = '';
+            for (var i = 0; i < arr.length; i++) {
+                str += arr[i];
+            }
+            digital.innerHTML = arr;
+            oWith.innerHTML = str;
+        }
+    }
+</script>
+
+</html
