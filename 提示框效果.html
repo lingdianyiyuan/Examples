@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提示框效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 550px;
+            margin: 30px auto;
+            border: 1px solid #000000;
+        }
+        
+        .list-car{
+            width: 100%;
+        }
+        .list-car::after{
+            display: block;
+            content: "";
+            height: 0;
+            clear: both;
+            overflow: hidden;
+        }
+        .list-car ul{
+            float: right;
+            width: 100%;
+        }
+        .list-car ul li{
+            float: left;
+            list-style: none;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000000;
+            margin: 5px;
+            box-sizing: border-box;
+            padding: 5px;
+            background: #f0f0f0;
+            cursor: crosshair;
+            position: relative;
+        }
+        .list-car ul li a{
+            color: #666;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .list-car ul li a strong{
+            display: block;
+        }
+        .list-car ul li img{
+            display: none;
+            border: 2px solid #999999;
+            width: 120px;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            z-index: 9;
+        }
+        h2{
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>名车车标展示-鼠标移过显示车标</h2>
+        <div class="list-car">
+            <ul>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>BMW</strong>宝马汽车
+                    </a> 
+                    <img src="./images/1.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Alfa Romeo</strong>阿尔法-罗米欧
+                    </a> 
+                    <img src="./images/2.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Skoda</strong>斯柯达
+                    </a>
+                    <img src="./images/3.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Volkswagen</strong>大众汽车
+                    </a> 
+                    <img src="./images/4.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Saab</strong>萨布牌轿车
+                    </a> 
+                    <img src="./images/5.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Lamborghini</strong>兰博基尼
+                    </a> 
+                    <img src="./images/6.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Porsche</strong>保时捷
+                    </a> 
+                    <img src="./images/7.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Peugeot</strong> 标致
+                    </a> 
+                    <img src="./images/8.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Mercedes1</strong>梅赛德斯 奔驰
+                    </a> 
+                    <img src="./images/9.jpg" alt="">
+                </li>
+                <li> 
+                    <a href="javascript:;">
+                        <strong>Buick</strong>别克汽车
+                    </a> 
+                    <img src="./images/10.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            var oImg = document.querySelectorAll("img");
+            var oLi = document.querySelectorAll("li");
+            for(var i = 0; i < oLi.length; i++){
+                oLi[i].index = i;
+                oLi[i].onmouseover = function(){
+                    oImg[this.index].style.display = "block";
+                }
+                oLi[i].onmouseout = function(){
+                    oImg[this.index].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
