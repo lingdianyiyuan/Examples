@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复选框（checkbox）全选/全不选/返选</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            width: 100px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            margin: 50px auto;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .content ul li {
+            list-style: none;
+            margin: 5px 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div>
+            <input type="checkbox" name="" id="one"><label id="oneLabel" for="">全选</label>
+            <a href="javascript:;">反选</a>
+        </div>
+        <hr>
+        <ul>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（一）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（二）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（三）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（四）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（五）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（六）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（七）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（八）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（九）</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" id="">
+                <label for="">选项（十）</label>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+        var select = document.getElementsByTagName("input");
+        var inverseSelection = document.getElementsByTagName("a")[0];
+        var oneLabel = document.getElementById("oneLabel");
+
+        function inp() {
+            for (var i = 1, n = 0; i < select.length; i++) {
+                select[i].checked && n++;
+                //选中为true，继续执行，n为未选中个数
+            }
+            select[0].checked = n == select.length - 1;
+            //n等于10的时候oInput[0].checked = n 为true;
+            oneLabel.innerHTML = select[0].checked ? "全不选" : "全选"
+        }
+        //全选/全不选
+        select[0].onclick = function () {
+            for (var i = 1; i < select.length; i++) {
+                select[i].checked = this.checked;
+            }
+            inp();
+        }
+        //反选
+        inverseSelection.onclick = function () {
+            for (var i = 1; i < select.length; i++) {
+                select[i].checked = !select[i].checked;
+            }
+            inp();
+        }
+        for (var i = 1; i < select.length; i++) {
+            select[i].onclick = function () {
+                inp()
+            }
+        }
+
+    </script>
+</body>
+
+</html>
