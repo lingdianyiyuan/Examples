@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用parseInt解析数字，并求和</title>
+    <style>
+        .content {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        input {
+            width: 50px;
+
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+            border: none;
+            background: #009f96;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <input type="text">
+        <span>+</span>
+        <input type="text">
+        <span>=</span>
+        <span id="with">?</span>
+        <button>求和</button>
+    </div>
+    <script>
+        var oInput = document.getElementsByTagName("input");
+        var oBut = document.getElementsByTagName("button")[0];
+        var oWith = document.getElementById("with");
+        for (var i = 0; i < oInput.length; i++) {
+            oInput[i].onkeyup = function () {
+                this.value = this.value.replace(/[^\d]/, "");
+            }
+        }
+        oBut.onclick = function () {
+            if (oInput[0].value === "" || oInput[1].value === "") {
+                alert("请输入数字")
+            } else {
+                oWith.innerHTML = parseInt(oInput[0].value) + parseInt(oInput[1].value);
+            }
+
+        }
+        //onkeyup
+        //replace
+        //parseInt
+    </script>
+</body>
+
+</html>
