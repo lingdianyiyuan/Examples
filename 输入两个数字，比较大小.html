@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>输入两个数字，比较大小</title>
+    <style>
+        .content {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        input {
+            width: 50px;
+        }
+
+        button {
+            border: none;
+            background: #378ce4;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <input type="text">
+        <span>vs</span>
+        <input type="text">
+        <button>最大的数是</button>
+        <input type="text">
+    </div>
+    <script>
+
+        var oInput = document.getElementsByTagName("input");
+        var oBut = document.getElementsByTagName("button");
+        for (var i = 0; i < oInput.length - 1; i++) {
+            oInput[i].onkeyup = function () {
+                this.value = this.value.replace(/[^\d]/, "");
+            }
+        }
+        oBut[0].onclick = function () {
+            if (oInput[0].value === "" || oInput[1].value === "") {
+                alert("请输入数字")
+            }
+            oInput[2].value = Math.max(oInput[0].value, oInput[1].value)
+        }
+
+        // oBut[0].onclick = function () {
+        //     if (oInput[0].value === "" || oInput[1].value === "") {
+        //         alert("请输入数字")
+        //     }
+        //     if(parseInt(oInput[0].value) > parseInt(oInput[1].value)){
+        //         oInput[2].value = parseInt(oInput[0].value)
+        //     }else if(parseInt(oInput[0].value) < parseInt(oInput[1].value)){
+        //         oInput[2].value = parseInt(oInput[1].value)
+        //     }
+        // }
+
+
+        //Math对象
+        //max()和min()方法用于确定一组数据的最大值和最小值。这两个方法都可以任意接收多个数值参数
+        //四舍五入
+        //Mat.ceil()执行向上取舍，即他总是将数值向上舍入为最接近的整数
+        //Math.floor()执行向下取舍，即他总是将数值向下舍入为最接近的整数。
+        //Math.round()执行标准取舍，即他总是将数值四舍五入为最接近的整数。
+    </script>
+</body>
+
+</html>
