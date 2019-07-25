@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用typeof查看数据类型</title>
+    <style>
+        pre{
+            background: #f0f0f0;
+            border: 1px dotted #333;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        &lt;script&gt;
+            alert(typeof 123)   //unmber类型
+            alert(typeof "abc") //String类型
+            alert(typeof true)  //boolen类型
+            alert(typeof document)   //object类型
+        &lt;/script&gt;
+    </pre>
+    <script>
+        alert("\"typeof 123\" →" + typeof 123 +"\n"+
+                "\"typeof 'abc'\" →" + typeof 'abc' +"\n"+
+                "\"typeof true\" →" + typeof true +"\n"+
+                "\"typeof document\" →" + typeof document +"\n");
+    </script>
+</body>
+</html>
