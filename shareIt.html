@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>shareIt</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .share{
+            width: 200px;
+            height: 200px;
+            background: #009f96;
+            position: absolute;
+            left: -200px;
+        }
+        .shareIt{
+            width: 20px;
+            height: 40px;
+            background: red;
+            position: absolute;
+            top: 80px;
+            right: -20px;
+        }
+        .share img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oDiv = document.getElementsByClassName("share")[0];
+            oDiv.onmouseover = function(){
+                startMove(0);
+            }
+            oDiv.onmouseout = function(){
+                startMove(-200);
+            }
+            var timer = null;
+            function startMove(end){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    var speed = 0;
+                    if(end == 0){
+                        speed = 10;
+                    }else{
+                        speed = -10;
+                    }
+                    if(oDiv.offsetLeft == end){
+                        clearInterval(timer);
+                    }else{
+                        oDiv.style.left = oDiv.offsetLeft + speed +"px"
+                    }
+                },30)
+            }
+    }
+    </script>
+</head>
+<body>
+    <div class="share">
+        <img src="images/hsq.jpg" alt="">
+        <span class="shareIt">分享</span>
+    </div>
+</body>
+</html>
