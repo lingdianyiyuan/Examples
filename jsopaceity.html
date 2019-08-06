@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-opaceity</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: #009f96;
+            filter: alpha(opaceity=30);
+            opacity: .3;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName("div")[0];
+
+            oDiv.onmouseover = function () {
+                startMove(100);
+            }
+            oDiv.onmouseout = function () {
+                startMove(30);
+            }
+            var timer = null;
+            var offset = 30; //opaceity初始值；
+            function startMove(end) {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    var speed = 0
+                    if (offset > end) {
+                        speed = -10;
+                    } else {
+                        speed = 10
+                    };
+                    if (offset == end) {
+                        clearInterval(timer);
+                    } else {
+                        offset += speed;
+                        oDiv.style.opacity = offset / 100;
+                    }
+
+                }, 30)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
